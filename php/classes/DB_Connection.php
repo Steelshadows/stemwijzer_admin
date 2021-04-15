@@ -17,7 +17,7 @@ class db_connection {
         $host = "localhost";
         $username = "root";
         $password = "";
-        $database_name = "gezondheidsmeter";
+        $database_name = "stemwijzer";
         //$host = "localhost";
         //$username = "student4a8_521282";
         //$password = "t4qPxf";
