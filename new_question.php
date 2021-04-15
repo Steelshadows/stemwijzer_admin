@@ -3,11 +3,10 @@ require 'php/classes/DB_Connection.php';
 $db_connection = new db_connection();
 if(isset($_POST["submit"])){
     //var_dump($_POST);
-    $sql = "UPDATE `question` SET `question` = ? WHERE `question`.`question_id` = ? ";
-    $params = [$_POST['question'],$_GET['id']];
+    $sql = "INSERT INTO `question` (`question`) VALUES ( ? )";
+    $params = [$_POST['question']];
     $db_connection->Query($sql,$params);
 }  
-$parties = $db_connection->fetchAllQuery("SELECT `question_id`,`question` FROM `question` WHERE `question_id` = ? ",[$_GET['id']]); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +22,14 @@ $parties = $db_connection->fetchAllQuery("SELECT `question_id`,`question` FROM `
 <form method="post">
     <table style="width:100%">
     <tr>
-        <th>id</th><th>question</th>
+        <th>question</th>
     </tr>
-        <?php 
-            foreach($parties as $party){
-                echo "<tr>";
-                echo "<td>".$party["question_id"]."</td>";
-                echo "<td><input style='width:100%;' name='question' type='text' value='".$party["question"]."'></td>";
-                echo "</tr>";
-            }
-        ?>
+       
+        <tr>
+        <td><input style='width:100%;' name='question' type='text' value=''></td>
+        </tr>
+            
+        
     </table>
     <button type='submit' name='submit' value='submit'>submit</button>
 </form>

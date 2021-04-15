@@ -17,9 +17,9 @@ $questions = $db_connection->fetchAllQuery("SELECT `question_id`,`question` FROM
 <body>
 <script src="js/data_functions.js"></script>
 <table style="width:100%">
-  <tr>
-    <th>id</th><th></th><th>name</th><th>sumary</th><th>mvp</th><th>website</th>
-  </tr>
+    <tr>
+        <th>id</th><th></th><th>name</th><th>sumary</th><th>mvp</th><th>website</th>
+    </tr>
     <?php 
         foreach($parties as $party){
             echo "<tr>";
@@ -32,6 +32,14 @@ $questions = $db_connection->fetchAllQuery("SELECT `question_id`,`question` FROM
             echo "</tr>";
         }
     ?>
+    <tr>
+        <td></td>
+        <td></td>
+        <td><a href='new_party.php'>add new party</a> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
 </table>
 <table style="width:100%">
   <tr>
@@ -46,6 +54,11 @@ $questions = $db_connection->fetchAllQuery("SELECT `question_id`,`question` FROM
             echo "</tr>";
         }
     ?>
+    <tr>
+        <td></td>
+        <td></td>
+        <td><a href='new_question.php'>add new question</a> </td>
+    </tr>
 </table>
 </ul>
     

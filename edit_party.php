@@ -2,7 +2,7 @@
 require 'php/classes/DB_Connection.php';
 $db_connection = new db_connection();
 if(isset($_POST["submit"])){
-    var_dump($_POST);
+    //var_dump($_POST);
     $sql = "UPDATE `party` SET `name` = ? , `sumary` = ? , `mvp` = ? , `website` = ? WHERE `party`.`party_id` = ?";
     $params = [$_POST['name'],$_POST['sumary'],$_POST['mvp'],$_POST['website'],$_GET['id']];
     $db_connection->Query($sql,$params);
@@ -37,6 +37,7 @@ $parties = $db_connection->fetchAllQuery("SELECT `party_id`,`name`,`sumary`,`mvp
             }
         ?>
     </table>
+    <a href="edit_party_answers.php?id=<?=$party["party_id"]?>"><button type="button">change party answers</button></a>
     <button type='submit' name='submit' value='submit'>submit</button>
 </form>
     
